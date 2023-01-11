@@ -1,8 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import authRoute from './routes/auth.js';
-
+import basicAuth from "./middleware/basicAuth.js"
 
 
 const PORT = 3000;
@@ -20,13 +19,14 @@ mongoose.connect(
     }
 );
 
+
+
+app.use(express.json())
+app.use(basicAuth)
+
 //Test Link
 app.get('/test', (req,res)=> {
     res.json({ ok: true});
 })
-
-//api routes
-app.use("/api/auth", authRoute);
-
 
 app.listen(PORT, () => console.log(`Server is now listening on port ${PORT}`));

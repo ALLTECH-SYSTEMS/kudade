@@ -1,7 +1,5 @@
 import mongoose from "mongoose";
 
-
-
 const SellerSchema = new mongoose.Schema(
     {
         seller_id: {type: String,},
@@ -12,10 +10,6 @@ const SellerSchema = new mongoose.Schema(
     { timestamps: true }
   );
 
-
-
-
-
-
+  
 const Seller = mongoose.model('Seller', SellerSchema);
 export default Seller;
