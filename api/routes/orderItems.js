@@ -1,6 +1,7 @@
 import express from 'express';
 import OrderItem from '../models/OrderItem.js';
 import UserResource from '../resources/UserResource.js';
+import Paginator from '../resources/Pagination.js';
 
 const orderItemRouter = express.Router();
 
@@ -49,15 +50,29 @@ orderItemRouter.get(
 				 as: "products"
 			  }
 		   }
-		]).sort(sortOrder).skip(offset).limit(limit);
+		 ]).sort(sortOrder).skip(offset).limit(limit);
 
 		// res.send(orders);
 
-		  const collection = UserResource.collection(orders, true);
-		  res.send(collection);
+		  const collection = UserResource.collection(new Paginator(orders, limit, offset), true);
+		  res.status(200).send(collection);
 		//   console.log(collection);
 		}
-    );
+);
+
+orderItemRouter.delete(
+    '/:id',
+    async (req, res) => {
+        const order = await OrderItem.findOne({ order_id : req.params.id });
+        if (order.seller_id == req.user.name) {
+          const deleteOrder = await order.remove();
+          res.status(200).send({ message: 'Order Item Deleted', order: deleteOrder });
+        } else {
+          res.status(404).send({ message: 'Order Item Not Found' });
+        }
+
+    }
+);
 	
 
 export default orderItemRouter;
