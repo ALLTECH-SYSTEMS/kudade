@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import basicAuth from "./middleware/basicAuth.js"
 import orderItemRoute from  "./routes/orderItems.js"
+import sellerRoute from "./routes/account.js"
 
 
 const PORT = 3000;
@@ -23,6 +24,7 @@ mongoose.connect(
 
 //middleware
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 app.use(basicAuth)
 
 //Test Link
@@ -32,7 +34,7 @@ app.get('/test', (req,res)=> {
 
 //api routes
 app.use("/orderitems", orderItemRoute);
-
+app.use("/account", sellerRoute);
 
 
 app.listen(PORT, () => console.log(`Server is now listening on port ${PORT}`));
