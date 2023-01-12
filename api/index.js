@@ -33,7 +33,7 @@ app.get('/test', (req,res)=> {
 })
 
 //api routes
-app.use("/orderitems", orderItemRoute);
+app.use("/order_items", orderItemRoute);
 app.use("/account", sellerRoute);
 
 
