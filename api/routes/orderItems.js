@@ -18,8 +18,23 @@ orderItemRouter.get(
               : order === 'date_asc'
               ? { shipping_limit_date: 1 }
               : { shipping_limit_date: -1 };
+
+          const limit =
+            req.query.limit && Number(req.query.limit) <= 20
+            ? 20
+            : req.query.limit && Number(req.query.limit) >= 100
+            ? 100
+            : req.query.limit && Number(req.query.limit) ? Number(req.query.limit) : 20
+
+
+          const page =
+            req.query.page && Number(req.query.page) <= 0 ? Number(req.query.page) : 0;
+		
+		
+		  const offset = limit * page;
           
-              
+        //   console.log(offset);
+
 		  const orders = await OrderItem.aggregate([
             {
                 $match: {
@@ -34,7 +49,7 @@ orderItemRouter.get(
 				 as: "products"
 			  }
 		   }
-		]).sort(sortOrder).limit(10);
+		]).sort(sortOrder).skip(offset).limit(limit);
 
 		// res.send(orders);
 
