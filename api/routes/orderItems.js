@@ -4,24 +4,22 @@ import UserResource from '../resources/UserResource.js';
 
 const orderItemRouter = express.Router();
 
-// orderItemRouter.get(
-//     '/',
-//     async (req, res) => {
-//       const orders = await OrderItem.find({
-//         seller_id: req.user.name
-//     });
-
-//       res.send(orders);
-
-//     //   const collection = UserResource.collection(orders, true);
-//     //   res.send(collection);
-//     //   console.log(collection);
-//     }
-// );
-
 orderItemRouter.get(
     '/',
 		async (req, res) => {
+
+          const order = req.query.order || '';
+
+          const sortOrder =
+            order === 'lowest'
+              ? { price: 1 }
+              : order === 'highest'
+              ? { price: -1 }
+              : order === 'date_asc'
+              ? { shipping_limit_date: 1 }
+              : { shipping_limit_date: -1 };
+          
+              
 		  const orders = await OrderItem.aggregate([
             {
                 $match: {
@@ -36,7 +34,7 @@ orderItemRouter.get(
 				 as: "products"
 			  }
 		   }
-		]).limit(10);
+		]).sort(sortOrder).limit(10);
 
 		// res.send(orders);
 
