@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
 
 const ProductSchema = new mongoose.Schema(
-    {
-        order_id:{type: String,},	
+    {	
         product_id:{type: String,},	
         product_category_name:{type: String,},	
         product_name_lenght:{type: String,},	
