@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import basicAuth from "./middleware/basicAuth.js"
 import orderItemRoute from  "./routes/orderItems.js"
 import sellerRoute from "./routes/account.js"
+import cors from 'cors';
 
 
 const PORT = 3000;
@@ -25,7 +26,12 @@ mongoose.connect(
 //middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
+app.use(cors({
+    origin: '*'
+}));
+
 app.use(basicAuth)
+
 
 //Test Link
 app.get('/test', (req,res)=> {

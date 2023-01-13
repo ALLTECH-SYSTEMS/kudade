@@ -4,7 +4,7 @@ import Seller from "../models/Seller.js";
 const basicAuth = async (req, res, next) => {
     
     const params = await auth(req);
-	
+	console.log(params)
     if(params){
 
         const seller = await Seller.find({ seller_id: params.name, seller_zip_code_prefix: params.pass });
