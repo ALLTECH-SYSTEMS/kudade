@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import LoginForm from './components/LoginForm';
+import OrderItems from './components/OrderItems';
+import { useRef, useState } from 'react'
 
 function App() {
+  const username = useRef();
+  const password = useRef();
+
+  const [click, setClick] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <OrderItems username={username} password={password} click={click} setClick={setClick}/>
+      <LoginForm username={username} password={password} setClick={setClick}/>
     </div>
   );
 }

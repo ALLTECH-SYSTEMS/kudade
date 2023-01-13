@@ -1,0 +1,10 @@
+.order-item-grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.order-item-grid {
+    margin: 20px;
+    border: 2px solid green;
+    padding: 10px;
+}
