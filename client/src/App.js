@@ -1,4 +1,4 @@
-import './App.css';
+
 import LoginForm from './components/LoginForm';
 import OrderItems from './components/OrderItems';
 import { useRef, useState } from 'react'
@@ -10,7 +10,7 @@ function App() {
   const [click, setClick] = useState(false);
 
   return (
-    <div className="App">
+    <div>
       <OrderItems username={username} password={password} click={click} setClick={setClick}/>
       <LoginForm username={username} password={password} setClick={setClick}/>
     </div>

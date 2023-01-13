@@ -60,6 +60,19 @@ orderItemRouter.get(
 		}
 );
 
+orderItemRouter.get(
+    '/:id',
+    async (req, res) => {
+        const order = await OrderItem.findOne({ order_id : req.params.id });
+        if (order) {
+          res.status(200).send(order);
+        } else {
+          res.status(404).send({ message: 'Order Item Not Found' });
+        }
+
+    }
+);
+
 orderItemRouter.delete(
     '/:id',
     async (req, res) => {
@@ -73,6 +86,9 @@ orderItemRouter.delete(
 
     }
 );
+
+
+
 	
 
 export default orderItemRouter;
