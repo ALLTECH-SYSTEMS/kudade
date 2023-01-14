@@ -5,32 +5,28 @@ import Order from './Order.js';
 import "./OrderItem.css";
 
 
-const OrderItems = ({ username, password, click, setClick }) => {
+const OrderItems = ({ user }) => {
 
   const [order, setOrder] = useState(null);
 
   useEffect(() => {
-    
-    if(click){
-      
-      if(username.current.value && password.current.value){
-          axios.get('http://localhost:3000/order_items', {
+    // if(click){
+      if(user){
+          axios.get('http://localhost:8000/order_items', {
             auth: {
-              username: username.current.value,
-              password: password.current.value
+              username: user?.username,
+              password: user?.password
             }
           }).then(response => {
               setOrder(response.data);
-              setClick(false);
               console.log(response.data);
               
-      
           }).catch(err => console.log(err));
       }
      
-    }
+    // }
    
-  }, [click, username, password, setClick]);
+  }, [user]);
 
   useEffect(()=>{
     console.log(order);

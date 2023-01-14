@@ -1,19 +1,23 @@
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import OrderItems from './components/OrderItems';
-import { useRef, useState } from 'react'
+import { useState } from 'react'
+import SingleOrderItem from './components/SingleOrderItem';
+
 
 function App() {
-  const username = useRef();
-  const password = useRef();
+  const [user, setUser] = useState(null);
 
-  const [click, setClick] = useState(false);
+  // const [click, setClick] = useState(false);
 
   return (
-    <div>
-      <OrderItems username={username} password={password} click={click} setClick={setClick}/>
-      <LoginForm username={username} password={password} setClick={setClick}/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+          <Route path='/' element={<LoginForm setUser={setUser} />}></Route>
+          <Route path='order-items' element={<OrderItems user={user} />}></Route>
+          <Route path='order-items/:id' element={<SingleOrderItem user={user} />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

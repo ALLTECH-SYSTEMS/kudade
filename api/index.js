@@ -7,7 +7,7 @@ import sellerRoute from "./routes/account.js"
 import cors from 'cors';
 
 
-const PORT = 3000;
+const PORT = 8000;
 
 
 dotenv.config();
