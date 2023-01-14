@@ -36,8 +36,8 @@ const OrderItems = ({ user }) => {
   return (
     <div className="order-item-grid-container">
       
-      { order && order.data.map((o) => {
-                      return <Order key={o.id} order={o} />; })
+      { order && order.data.map((o,i) => {
+                      return <Order key={i} order={o} />; })
       }
 
     </div>

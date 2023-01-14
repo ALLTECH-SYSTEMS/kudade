@@ -8,3 +8,50 @@
     border: 2px solid green;
     padding: 10px;
 }
+
+.single-order {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.single-order-item {
+    margin: 20px;
+    border: 2px solid green;
+    padding: 50px;
+    /* text-align: center;  */
+}
+
+.btn {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-edit {
+   margin-right: 10px;
+   color: blue;
+}
+
+.btn-edit:hover, .btn-delete:hover {
+    cursor:pointer
+}
+
+.btn-delete {
+    display: block;
+    color: red;
+}
+
+.btn-edit-order {
+    color: white;
+    background-color: green;
+}
+
+.edit-form {
+    margin: 30px;
+}
+
+.edit-form label, .edit-form input{
+    display: block;
+}

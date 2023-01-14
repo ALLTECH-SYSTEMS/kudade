@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import "./OrderItem.css";
 
 const LoginForm = ({ setUser }) => {
     const navigate = useNavigate();
@@ -16,7 +17,8 @@ const LoginForm = ({ setUser }) => {
 
   return (
     <>
-        <h4> Kindly enter your Seller ID and Zip Code Prefix to Access Your OrderItems </h4>  
+    <section class='single-order'>
+        <h4 className='login-header'> Kindly enter your Seller ID and Zip Code Prefix to Access Your Order Items </h4>  
         <form onSubmit={handleClick}>  
             <div className="container">   
                 <label>Username : </label>   
@@ -31,6 +33,7 @@ const LoginForm = ({ setUser }) => {
                 Forgot <a href="#"> password? </a>    */}
             </div>   
         </form>
+    </section>
     </>
   )
 }
