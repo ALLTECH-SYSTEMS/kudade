@@ -1,0 +1,21 @@
+{
+    
+    "parserOptions": {
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },  
+    
+    "env": {
+      "browser": true
+    },
+    "globals": {
+      "browser": true,
+      "console": true
+    },
+    "rules": {
+      "strict": [
+        2,
+        "global"
+      ]
+    }
+}

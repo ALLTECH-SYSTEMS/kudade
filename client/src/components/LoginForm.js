@@ -17,7 +17,7 @@ const LoginForm = ({ setUser }) => {
 
   return (
     <>
-    <section class='single-order'>
+    <section className='single-order'>
         <h4 className='login-header'> Kindly enter your Seller ID and Zip Code Prefix to Access Your Order Items </h4>  
         <form onSubmit={handleClick}>  
             <div className="container">   

@@ -34,9 +34,9 @@ app.use(basicAuth)
 
 
 //Test Link
-app.get('/test', (req,res)=> {
-    res.json({ ok: true});
-})
+// app.get('/test', (req,res)=> {
+//     res.json({ ok: true});
+// })
 
 //api routes
 app.use("/order_items", orderItemRoute);
