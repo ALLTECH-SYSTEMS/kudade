@@ -5,7 +5,7 @@
 // describe('test the kudade API', () => {
 
 //     afterAll(async () => {
-//         // await User.deleteMany();
+//      
 //         mongoose.disconnect();
 //       });
 
@@ -16,8 +16,7 @@
 //             const res = await request(app)
 //                         .get('/order_items')
 //                         .auth('d1b65fc7debc3361ea86b5f14c68d2e2', '13844');
-//                         // console.log(res)
-                        
+//                    
 //             expect(res.statusCode).toEqual(200);
 //             expect(res.body).toEqual(
 //             expect.objectContaining({
@@ -29,21 +28,7 @@
 //             }),
 //             );
 //         });
-//         // it('it should not retrieve any recipe from db, internal server error',
-//         // async () => {
-//         //     jest.spyOn(RecipeService, 'allRecipes')
-//         //     .mockRejectedValueOnce(new Error());
-//         //     const res = await request(app)
-//         //     .get('/recipes')
-//         //     .send();
-//         //     expect(res.statusCode).toEqual(500);
-//         //     expect(res.body).toEqual(
-//         //     expect.objectContaining({
-//         //         success: false,
-//         //         message: 'Some error occurred while retrieving recipes.',
-//         //     }),
-//         //     );
-//         // });
+//
 //     });
 
 
